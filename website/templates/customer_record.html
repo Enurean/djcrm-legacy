@@ -2,8 +2,32 @@
 
 {% block content %}
 
-<h1>Costumer records</h1>
-    {{ customer_record.first_name }} {{ customer.last_name }}
+
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="Profile Picture">
+    <div class="card-body">
+      <h5 class="card-title">{{ customer_record.first_name }} {{ customer_record.last_name }}</h5>
+      <p class="card-text">Sponsor</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ customer_record.email }}</li>
+      <li class="list-group-item">{{ customer_record.phone }}</li>
+      <li class="list-group-item">{{ customer_record.address }}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Pedidos</a>
+      <a href="#" class="card-link">Ultima visita</a>
+    </div>
+</div>
+
+<br></br>
+<a href="{% url 'home' %}"" class="btn btn-primary">Back</a>
+<a href="{% url 'delete_customer' customer_record.id %}"" class="btn btn-danger">Delete</a>
+<a href="{% url 'update_customer' customer_record.id %}"" class="btn btn-primary">Update</a>
+
+
+    <!-- {{ customer_record.first_name }} {{ customer_record.last_name }}
     {{ customer_record.email }}
     {{ customer_record.phone }}
     {{ customer_record.address }}
@@ -11,6 +35,6 @@
     {{ customer_record.province }}
     {{ customer_record.zipcode }}
     {{ customer_record.created_at }}
-    {{ customer_record.id }}
+    {{ customer_record.id }} -->
 
 {% endblock %}
